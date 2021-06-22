@@ -275,7 +275,7 @@ def init_widgets_list():
                   background = colors[0]
                   ),
               widget.Prompt(
-                  prompt = f"{socket.gethostname()}: ".upper(),
+                  prompt = f"{socket.gethostname().title()}: ",
                   font = "Hack Nerd Font Mono",
                   fontsize = 14,
                   padding = 10,
