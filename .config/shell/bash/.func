@@ -1,0 +1,92 @@
+#
+# ~/.bash/.func
+#
+
+# Create Alias
+# change path and alias file to your own
+# this function writes directly to it.
+addalias(){
+  al=$1
+  shift 1
+  echo -e "alias $al='${*//\'/\'\"\'\"\'}'" >> $HOME/.bash/.alias
+  . $HOME/.bashrc
+}
+
+# CD & List
+cd() {
+  builtin cd "$@" && ls
+}
+
+# Mkdir & CD Into It
+mcd(){
+  mkdir -p ${@}
+  cd ${@}
+}
+
+# Make Vim follow symbolic links
+function vim() {
+    args=()
+    for i in $@; do
+        if [[ -h $i ]]; then
+            args+=`readlink $i`
+        else
+            args+=$i
+        fi
+    done
+    /usr/bin/vim -p "${args[@]}"
+}
+
+# An alternative way to get and display the session uptime.
+if [ -f /proc/uptime -a -r /proc/uptime ]; then
+    up(){
+        read -a X < /proc/uptime
+        declare -i H=$((${X[0]%.*}/60/60))
+        declare -i M=$((${X[0]%.*}/60-(H*60)))
+        P(){ [ $1 -gt 1 -o $1 -eq 0 ] && printf "s"; }
+        printf "   UP: $H hour%s and $M minute%s.\n" `P $H` `P $M`
+
+        unset X
+        unset -f P
+    }
+fi
+
+# Extract archive
+function extract {
+    if [ -z "$1" ]; then
+        echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+    else
+        if [ -f $1 ] ; then
+            case $1 in
+                *.tar.bz2)   tar xvjf ./$1    ;;
+                *.tar.gz)    tar xvzf ./$1    ;;
+                *.tar.xz)    tar xvJf ./$1    ;;
+                *.lzma)      unlzma ./$1      ;;
+                *.bz2)       bunzip2 ./$1     ;;
+                *.rar)       unrar x -ad ./$1 ;;
+                *.gz)        gunzip ./$1      ;;
+                *.tar)       tar xvf ./$1     ;;
+                *.tbz2)      tar xvjf ./$1    ;;
+                *.tgz)       tar xvzf ./$1    ;;
+                *.zip)       unzip ./$1       ;;
+                *.Z)         uncompress ./$1  ;;
+                *.7z)        7z x ./$1        ;;
+                *.xz)        unxz ./$1        ;;
+                *.exe)       cabextract ./$1  ;;
+                *)           echo "extract: '$1' - unknown archive method" ;;
+            esac
+        else
+            echo "$1 - file does not exist"
+        fi
+    fi
+}
+
+# Creates an archive (*.tar.gz) from given directory.
+function maketar() { tar cvzf "${1%%/}.tar.gz"  "${1%%/}/"; }
+
+# Create a ZIP archive of a file or folder.
+function makezip() { zip -r "${1%%/}.zip" "$1" ; }
+
+# Make your directories and files access rights sane.
+function sanitize() { chmod -R u=rwX,g=rX,o= "$@" ;}
+
+# syntax:bash

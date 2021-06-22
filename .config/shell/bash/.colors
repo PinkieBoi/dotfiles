@@ -1,0 +1,34 @@
+#
+# ~/.bash/.colors
+#
+
+# Coloured man pages
+man() {
+    env LESS_TERMCAP_mb=$'\E[01;31m' \
+    LESS_TERMCAP_md=$'\E[01;38;5;74m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[38;5;246m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[04;38;5;146m' \
+    man "$@"
+}
+
+# Get our Colours
+if [[ -r ~/.dir_colors ]] && type -p dircolors >/dev/null; then
+  eval $(dircolors -b "$HOME/.dir_colors")
+fi
+
+# http://linuxgazette.net/137/anonymous.html
+cursor_style_default=0 # hardware cursor (blinking)
+cursor_style_invisible=1 # hardware cursor (blinking)
+cursor_style_underscore=2 # hardware cursor (blinking)
+cursor_style_lower_third=3 # hardware cursor (blinking)
+cursor_style_lower_half=4 # hardware cursor (blinking)
+cursor_style_two_thirds=5 # hardware cursor (blinking)
+cursor_style_full_block_blinking=6 # hardware cursor (blinking)
+cursor_style_full_block=16 # software cursor (non-blinking)
+
+cursor_styles="\e[?${cursor_style_full_block_blinking};c" # only seems to work in tty
+
+# syntax:bash

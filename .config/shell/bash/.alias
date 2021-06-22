@@ -1,0 +1,232 @@
+#
+# ~/.bash/.alias
+#
+
+# Clear screen
+alias cls='clear'
+alias more='less'
+alias ":q"="exit"
+
+# Invoke irssi session within tmux
+alias irs="tmux new -s irssi irssi"
+
+# Sudo
+alias sudo='sudo '
+alias reboot='reboot'
+alias poweroff='poweroff'
+alias halt='halt'
+
+# grep
+alias grep="grep --color=auto"
+alias fgrep="fgrep --color=auto"
+alias egrep="egrep --color=auto"
+alias pg='ps -Af | grep $1'
+alias hist='history | grep'
+alias lastupd="ls -lrt | grep ^- | awk 'END{print $NF}'"
+
+# print XDG variables
+alias xdgexport='export -p | grep XDG'
+
+# git commands
+alias gc='git clone '
+
+# Clean python crud
+alias pyclean='find . -name \*.pyc -o -name \*.pyo -o -name __pycache__ -delete'
+
+# Pacman
+alias pacman='sudo pacman --color auto'
+alias pacupd='pacman -Syy'
+alias pacupg='yay -Syu'
+alias pacins='pacman -S '
+alias pacnoc='pacman -S --noconfirm '
+alias pacrem='pacman -R '
+alias pacdep='pacman -Rcn '
+alias pacshq="pacman -Ql pacman | awk -F\"[/ ]\" '/\/usr\/bin/ {print $5}'"
+
+# remove pacman db.lck
+alias remlock="rm -r /var/lib/pacman/db.lck"
+# '[r]emove [o]rphans' - recursively remove ALL orphaned packages
+alias remorphans="/usr/bin/pacman -Qtdq > /dev/null && sudo /usr/bin/pacman -Rns \$(/usr/bin/pacman -Qtdq | sed -e ':a;N;$!ba;s/\n/ /g')"
+# using fzf to browse all installed packages in a split pane view (very useful)
+alias installed="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
+# save two lists of installed packages, those from arch repos and those from the AUR
+alias savepkgs="sudo pacman -Qqen > $HOME/pkgs-arch-ABS.txt && sudo pacman -Qqem > $HOME/pkgs-arch-AUR.txt"
+
+# Yay
+alias yayupd='yay -Syy'
+alias yayupg='yay -Syu'
+alias yayrem='yay -R '
+alias yayrms='yay -Rs '
+alias yayins='yay -S '
+alias yaynoc='yay -S --noconfirm '
+
+# reflector update mirrors
+alias reflect="reflector --latest 40 --completion-percent 90 --protocol https --sort rate --save /etc/pacman.d/mirrorlist > /dev/null 2>&1"
+alias reflectuk="reflector --country 'United Kingdom' --latest 40 --completion-percent 90 --protocol https --sort rate --save /etc/pacman.d/mirrorlist > /dev/null 2>&1"
+
+alias ps="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+
+#update icon cache
+alias updateicons="gtk-update-icon-cache -f -t /usr/share/icons/"
+#improve png
+alias fixpng='find . -type f -name "*.png" -exec convert {} -strip {} \;'
+#mounting the folder Public for exchange between host and guest on virtualbox
+alias vboxmount="mount -t vboxsf -o rw,uid=$UID,gid=$UID Public /home/$USER/Public"
+#Recent Installed Packages
+alias recent="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -100"
+#get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Reaload bashrc
+alias rl='cls && . ~/.bashrc'
+# cli infos
+alias neofetch="cls && neofetch --ascii_distro arch --color_blocks off --bar_char '─' '─' --bar_length 7 --bold on -shell_version on --cpu_cores logical --cpu_brand on --cpu_speed on --cpu_temp C --cpu_display barinfo --memory_percent on --memory_display barinfo --disk_display barinfo"
+alias nf="cls && neofetch --ascii_distro arch --color_blocks off --bar_char '─' '─' --bar_length 7 --bold on -shell_version on --cpu_cores logical --cpu_brand on --cpu_speed on --cpu_temp C --cpu_display barinfo --memory_percent on --memory_display barinfo --disk_display barinfo"
+alias al='cls && alsi -l'
+alias alsi='cls && alsi'
+# Reinitialise Resources
+alias xr='xrdb -merge ~/.Xresources'
+alias xl='xrdb -load ~/.Xresources && rl'
+
+# Local / Public IP
+alias mypip="curl ipecho.net/plain; echo"
+alias mylip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0-9]*).*/\2/p'"
+alias mynet="lspci -knn|grep -iA2 net"
+alias mynethw='hwinfo --netcard --wlan --bluetooth | grep -Ei "model\:|driver\:|status\:|cmd\:|file\:|detected\:" | grep -v "Config Status"'
+
+# The 'ls' family
+alias ll="ls -l --group-directories-first"
+alias ls="ls -h --color"    # add colors for filetype recognition
+alias la="ls -a --color"    # show hidden files
+alias lx="ls -xb"           # sort by extension
+alias lk="ls -lSr"          # sort by size, biggest last
+alias lc="ls -ltcr"         # sort by and show change time, most recent last
+alias lu="ls -ltur"         # sort by and show access time, most recent last
+alias lt="ls -ltr"          # sort by date, most recent last
+alias lm="ls -al |more"     # pipe through 'more'
+alias lr="ls -lR"           # recursive ls
+alias lsr="tree -Csu"       # nice alternative to 'recursive ls'
+
+# Call Sublime Text
+alias sub="subl3 "
+alias subrc="subl3 ~/.bashrc"
+alias subal="subl3 ~/.bash/.alias"
+alias subbp="subl3 ~/.bash_profile"
+alias subxr="subl3 ~/.Xresources"
+alias subi3="subl3 ~/.config/i3/config"
+alias subpy="subl3 ~/.config/polybar/config"
+
+# Call micro (if installed)
+alias micro="micro "
+alias micrc="micro ~/.bashrc"
+alias mical="micro ~/.bash/.alias"
+alias micbp="micro ~/.bash_profile"
+alias micxr="micro ~/.Xresources"
+alias mici3="micro ~/.config/i3/config"
+alias micpy="micro ~/.config/polybar/config"
+
+# Shortcuts to edit startup files
+alias vim="vim "
+alias vi="vim "
+alias vali="vim ~/.bash/.alias"
+alias vbrc="vim ~/.bashrc"
+alias vbpf="vim ~/.bash_profile"
+alias vi3c="vim ~/.config/i3/config"
+alias vpol="vim ~/.config/polybar/config"
+
+# Misc utilities
+alias du="du -kh"
+alias df="df -kTh"
+alias chx="chmod +x"
+
+alias diskchk="lsblk -d -e 7 -o name,rota,disc-max,model,ptuuid"
+alias listusb='lsblk -p -S -o name,tran,rm | grep "usb" | cut -d " " -f1'
+
+#three ways to get audio output devices
+alias alsadev="LANG=C pactl list | grep -A2 'Source #' | grep 'Name: ' | cut -d' ' -f2"
+alias pulsedev="pacmd list-sources | grep -e 'index:' -e device.string -e 'name:'"
+alias listsinks="pacmd list-sinks | grep -e 'name:' -e 'index:'"
+
+# create /remove pulseaudio loopback device
+alias aloopback="pactl load-module module-loopback"
+alias rloopback="pactl unload-module module-loopback"
+
+#system commands / trouble shooting
+alias grubupd="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias mkinitp="sudo mkinitcpio -p linux"
+alias statldm="sudo stat /var/lib/lightdm/.Xauthority"
+alias fixgnupg="chown -R $(whoami) ~/.gnupg/ | find ~/.gnupg -type f -exec chmod 600 {} \; | find ~/.gnupg -type d -exec chmod 700 {} \;"
+
+#stop lightdm user from expiring
+alias ldmexpr="sudo chage -E -1 lightdm"
+
+#nemo installed? set xfce terminal as default
+alias nemoterm='gsettings set org.cinnamon.desktop.default-applications.terminal exec x-terminal-emulator | echo -e "Terminal for Nemo now set to Xfce4-Terminal"'
+
+#systemd specific commands
+alias checks="sudo checkservices"
+alias sdstat="sudo systemctl status "
+alias sdenab="sudo systemctl enable "
+alias sddisb="sudo systemctl disable "
+alias sdstrt="sudo systemctl start "
+alias sdstop="sudo systemctl stop "
+alias sdrest="sudo systemctl restart "
+
+#smb / nmb services restart
+alias rstsmb="sudo systemctl restart smb.service"
+alias rstnmb="sudo systemctl restart nmb.service" 
+
+# launch ncmpcpp
+alias ncmp="ncmpcpp 2> /dev/null"
+
+# CD & List
+cd() {
+  builtin cd "$@" && ls
+}
+
+# this section is curated due to usefulness
+# credit: https://github.com/terminalforlife
+
+# Efficient and fairly portable way to display the current iface.
+[ -x /sbin/ip ] && alias iface='X=(`/sbin/ip route`) && echo ${X[4]}'
+
+# Fix all CWD file and directory permissions to match the safer 0077 umask.
+if [ -x /bin/chmod ]; then
+	alias fixperms='\
+		/usr/bin/find -xdev \( -type f -exec /bin/chmod 600 "{}" \+ -o\
+			-type d -exec /bin/chmod 700 "{}" \+ \)\
+			-printf "FIXING: %p\n" 2> /dev/null
+	'
+fi
+
+# Display a columnized list of bash builtins.
+if [ -x /usr/bin/column ]; then
+	alias builtins='\
+		while read -r; do
+			echo "${REPLY/* }"
+		done <<< "$(enable -a)" | /usr/bin/column
+	'
+fi
+
+# A more descriptive, yet concise lsblk; you'll miss it when it's gone.
+if [ -x /bin/lsblk ]; then
+	alias lsblkid='\
+		/bin/lsblk -o name,label,fstype,size,uuid,mountpoint --noheadings
+	'
+fi
+
+# Just return the disk name sda,sdb etc, nothing more
+if [ -x /bin/lsblk ]; then
+	alias lsblkds="/bin/lsblk | grep disk | awk '{print $1}'"
+fi
+
+# Ease-of-use youtube-dl aliases; these save typing!
+if type -fP youtube-dl > /dev/null 2>&1; then
+	alias ytdlv="youtube-dl -c --yes-playlist --sleep-interval 5 --format best --no-call-home --console-title --quiet --ignore-errors" #: Download HQ videos from YouTube, using youtube-dl.
+	alias ytdla="youtube-dl -cx --yes-playlist --audio-format mp3 --sleep-interval 5 --max-sleep-interval 5 --no-call-home --console-title --quiet --ignore-errors" #: Download HQ audio from YouTube, using youtube-dl.
+	alias ytpla="youtube-dl -cix --audio-format mp3 --sleep-interval 5 --yes-playlist --no-call-home --console-title --quiet --ignore-errors" #: Download HQ videos from YouTube playlist, using youtube-dl.
+	alias ytplv="youtube-dl -ci --yes-playlist --sleep-interval 5 --format best --no-call-home --console-title --quiet --ignore-errors" #: Download HQ audio from YouTube playlist, using youtube-dl.
+fi
+
+# syntax:bash

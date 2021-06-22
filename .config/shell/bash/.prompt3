@@ -1,0 +1,2 @@
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-15}; else CurDir=$DIR; fi'
+PS1="\n[\[\033[01;36m\]\A\[\033[01;00m\]]\[\033[01;00m\][\[\033[01;36m\]\$CurDir\[\033[01;00m\]]\[\033[01;32m\]->\[\033[00m\] "
