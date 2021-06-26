@@ -9,13 +9,13 @@ alias config="/usr/bin/git --git-dir=/home/pinkieboi/.dotfiles/ --work-tree=/hom
 
 ### Filesystem
     # ls
-alias ls="exa"
-alias la="exa -ah"
-alias ll="exa -lah"
-alias lm="exa -m"
-alias lr="exa -R"
-alias l.="exa -Ah | egrep '^\.'"
-alias lg="exa -l --group-directories-first"
+alias ls="colorls --dark"
+alias la="colorls --dark -ah"
+alias ll="colorls --dark -lah"
+alias lm="colorls --dark -m"
+alias lr="colorls --dark -R"
+alias l.="colorls --dark -Ah | egrep '^\.'"
+alias lg="colorls --dark -l --group-directories-first"
     # grep
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"

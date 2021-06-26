@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =7
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/pinkieboi/.config/qt5ct'
 let g:netrw_dirhist_7='/etc/X11/xorg.conf.d'
 let g:netrw_dirhist_6='/etc/X11'
 let g:netrw_dirhist_5='/etc/X11/xorg.conf.d'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_2='/home/pinkieboi/.config/nitrogen'
 let g:netrw_dirhist_1='/home/pinkieboi/.config/sxhkd'
 let g:netrw_dirhist_0='/home/pinkieboi/.config'
 let g:netrw_dirhist_9='/etc/skel/.config/qtile/scripts'
-let g:netrw_dirhist_8='/etc/skel/.config/qtile'

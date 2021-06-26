@@ -30,24 +30,24 @@ call plug#end()
 " General Settings
 set path+=**
 syntax on
-set t_Co=256                            "256-colour terminal
-colorscheme dracula                     "Vim colorscheme
-set number relativenumber               "Fancy line numbers
-set cursorline                          "Highlight cursor line for easy navigation
-set ruler
-set wrap                                "Wrap long lines
+colorscheme dracula
+set t_Co=256
+set number relativenumber
 set cursorline
-set clipboard+=unnamedplus              "Clipboard
+set ruler
+set wrap
+set cursorline
+set clipboard+=unnamedplus
 set cmdheight=1
-set laststatus=2                        "Always show statusline
-set noshowmode                          "Prevent modes displaying twice
+set laststatus=2
+set noshowmode
 set backup
 set noswapfile
 set wildmenu
 set nohlsearch
-set incsearch                           "Incremental search
+set incsearch
 set ignorecase
-set mouse=a                             "Enable scrolling & resizing
+set mouse=a
 set langmenu=en_GB
 set encoding=utf-8
 set fileformat=unix
@@ -56,12 +56,12 @@ set scrolloff=8
 set shiftwidth=4
 set tabstop=4
 set softtabstop=4
-set expandtab                           "Make Tabs spaces
-set smarttab                            "Indent sensitive tabbing
-set errorbells                          "Incentive not to make any mistakes
+set expandtab
+set smarttab
+set errorbells
 set showbreak="¬"
-set fillchars+=vert:¬                   "Fill characters for vert split border
-set listchars=tab:\│\ 
+set helpheight=30
+set fillchars+=vert:¬
 
 let g:rainbow_active = 1
 

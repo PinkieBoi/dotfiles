@@ -77,8 +77,8 @@ keys = [
 
     # Miltimedia
         # Brightness
-    Key([], "XF86MonBrightnessUp", lazy.spawn("backlight -inc 10")),
-    Key([], "XF86MonBrightnessDown", lazy.spawn("backlight-down 10")),
+    # Key([], "XF86MonBrightnessUp", lazy.spawn("backlight -inc 10")),
+    # Key([], "XF86MonBrightnessDown", lazy.spawn("backlight-down 10")),
         # Volume
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
