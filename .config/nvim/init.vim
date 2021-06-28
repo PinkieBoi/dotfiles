@@ -69,17 +69,17 @@ let g:rainbow_active = 1
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_files_number = 6
 let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   Recent Files']   },
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-          \ { 'type': 'sessions',  'header': ['   Sessions']       },
-          \ { 'type': 'commands',  'header': ['   Commands']       },
-          \ ]
+            \ { 'type': 'files',     'header': ['   Recent Files']   },
+            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+            \ { 'type': 'sessions',  'header': ['   Sessions']       },
+            \ { 'type': 'commands',  'header': ['   Commands']       },
+            \ ]
 let g:startify_skiplist = [
-           \ '\.vimgolf',
-           \ '^/tmp',
-           \ '/project/.*/documentation',
-           \ escape(fnamemodify($HOME, ':p'), '\') .'mysecret.txt',
-           \ ]
+            \ '\.vimgolf',
+            \ '^/tmp',
+            \ '/project/.*/documentation',
+            \ escape(fnamemodify($HOME, ':p'), '\') .'mysecret.txt',
+            \ ]
 let g:startify_bookmarks = [
             \ {'6': '~/.zshrc'},
             \ {'7': '~/.bashrc'},

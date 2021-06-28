@@ -6,7 +6,7 @@
 export EDITOR='nvim'
 export VISUAL='kate'
 export LANG=en_GB.UTF-8
-export PATH="/usr/lib/python3.9/site-packages:/opt/anaconda/bin:$HOME/.local/bin:$HOME/.bin:$HOME/.local/kitty.app/bin:$PATH"
+export PATH="/usr/lib/python3.9/site-packages:$HOME/.emacs.d/bin:$HOME/.local/bin:$HOME/.bin:$HOME/.local/kitty.app/bin:$PATH"
 export HISTCONTROL=ignoreboth:erasedups
 
 ## Options section

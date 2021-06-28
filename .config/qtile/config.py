@@ -341,20 +341,20 @@ def init_widgets_list():
                   margin_x = 2,
                   foreground = colors[6],
                   ),
-              widget.Sep(
-                  linewidth = 3,
-                  foreground = colors[0],
-                  background = colors[0]
-                  ),
-              arcobattery.BatteryIcon(
-                  theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
-                  padding=0,
-                  scale=0.7,
-                  y_poss=2,
-                  update_interval = 5,
-                  foreground = colors[2],
-                  background = colors[0]
-                  ),
+              # widget.Sep(
+              #     linewidth = 3,
+              #     foreground = colors[0],
+              #     background = colors[0]
+              #     ),
+              # arcobattery.BatteryIcon(
+              #     theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
+              #     padding=0,
+              #     scale=0.7,
+              #     y_poss=2,
+              #     update_interval = 5,
+              #     foreground = colors[2],
+              #     background = colors[0]
+              #     ),
               widget.Sep(
                   linewidth = 3,
                   foreground = colors[0],
