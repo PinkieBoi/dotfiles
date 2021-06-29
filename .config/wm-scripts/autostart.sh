@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 function run {
   if ! pgrep $1 ;
@@ -7,7 +7,7 @@ function run {
   fi
 }
 
-#change your keyboard if you need it
+# Keyboard layout
 setxkbmap gb
 
 #starting utility applications at boot time
