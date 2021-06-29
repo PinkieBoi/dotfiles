@@ -1380,52 +1380,27 @@ c.tabs.mode_on_change = 'normal'
 ## the search engine name to the search term, e.g. `:open google
 ## qutebrowser`.
 ## Type: Dict
-# c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
+c.url.searchengines = {'DEFAULT': 'https://search.brave.com/search?q={}', 'aw': 'https://wiki.archlinux.org/?search={}'}
 
 ## Page(s) to open at the start.
 ## Type: List of FuzzyUrl, or FuzzyUrl
-# c.url.start_pages = ['https://start.duckduckgo.com']
+c.url.start_pages = ['https://search.brave.com']
 
 ## URL parameters to strip with `:yank url`.
 ## Type: List of String
 # c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 
-## Hide the window decoration.  This setting requires a restart on
-## Wayland.
-## Type: Bool
+## Window Settings
 # c.window.hide_decoration = False
+c.window.title_format = '{perc}{current_title}{title_sep}qutebrowser'
+c.window.transparent = False
 
-## Format to use for the window title. The same placeholders like for
-## `tabs.title.format` are defined.
-## Type: FormatString
-# c.window.title_format = '{perc}{current_title}{title_sep}qutebrowser'
+## Zoom
+c.zoom.default = '100%'
+c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
+c.zoom.text_only = False
 
-## Set the main window background to transparent.  This allows having a
-## transparent tab- or statusbar (might require a compositor such as
-## picom). However, it breaks some functionality such as dmenu embedding
-## via its `-w` option. On some systems, it was additionally reported
-## that main window transparency negatively affects performance.  Note
-## this setting only affects windows opened after setting it.
-## Type: Bool
-# c.window.transparent = False
-
-## Default zoom level.
-## Type: Perc
-# c.zoom.default = '100%'
-
-## Available zoom levels.
-## Type: List of Perc
-# c.zoom.levels = ['25%', '33%', '50%', '67%', '75%', '90%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%', '400%', '500%']
-
-## Number of zoom increments to divide the mouse wheel movements to.
-## Type: Int
-# c.zoom.mouse_divider = 512
-
-## Apply the zoom factor on a frame only to the text or to all content.
-## Type: Bool
-# c.zoom.text_only = False
-
-## Bindings for normal mode
+## Keybindings - normal mode
 # config.bind("'", 'mode-enter jump_mark')
 # config.bind('+', 'zoom-in')
 # config.bind('-', 'zoom-out')
@@ -1616,7 +1591,7 @@ c.tabs.mode_on_change = 'normal'
 # config.bind('{{', 'navigate prev -t')
 # config.bind('}}', 'navigate next -t')
 
-## Bindings for caret mode
+## Keybindings - caret mode
 # config.bind('$', 'move-to-end-of-line', mode='caret')
 # config.bind('0', 'move-to-start-of-line', mode='caret')
 # config.bind('<Ctrl-Space>', 'selection-drop', mode='caret')
@@ -1647,7 +1622,7 @@ c.tabs.mode_on_change = 'normal'
 # config.bind('{', 'move-to-end-of-prev-block', mode='caret')
 # config.bind('}', 'move-to-end-of-next-block', mode='caret')
 
-## Bindings for command mode
+## Keybindings - command mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='command')
 # config.bind('<Alt-Backspace>', 'rl-backward-kill-word', mode='command')
 # config.bind('<Alt-D>', 'rl-kill-word', mode='command')
@@ -1680,22 +1655,22 @@ c.tabs.mode_on_change = 'normal'
 # config.bind('<Tab>', 'completion-item-focus next', mode='command')
 # config.bind('<Up>', 'completion-item-focus --history prev', mode='command')
 
-## Bindings for hint mode
+## Keybindings - hint mode
 # config.bind('<Ctrl-B>', 'hint all tab-bg', mode='hint')
 # config.bind('<Ctrl-F>', 'hint links', mode='hint')
 # config.bind('<Ctrl-R>', 'hint --rapid links tab-bg', mode='hint')
 # config.bind('<Escape>', 'mode-leave', mode='hint')
 # config.bind('<Return>', 'hint-follow', mode='hint')
 
-## Bindings for insert mode
+## Keybindings - insert mode
 # config.bind('<Ctrl-E>', 'edit-text', mode='insert')
 # config.bind('<Escape>', 'mode-leave', mode='insert')
 # config.bind('<Shift-Ins>', 'insert-text -- {primary}', mode='insert')
 
-## Bindings for passthrough mode
+## Keybindings - passthrough mode
 # config.bind('<Shift-Escape>', 'mode-leave', mode='passthrough')
 
-## Bindings for prompt mode
+## Keybindings - prompt mode
 # config.bind('<Alt-B>', 'rl-backward-word', mode='prompt')
 # config.bind('<Alt-Backspace>', 'rl-backward-kill-word', mode='prompt')
 # config.bind('<Alt-D>', 'rl-kill-word', mode='prompt')
@@ -1721,10 +1696,10 @@ c.tabs.mode_on_change = 'normal'
 # config.bind('<Tab>', 'prompt-item-focus next', mode='prompt')
 # config.bind('<Up>', 'prompt-item-focus prev', mode='prompt')
 
-## Bindings for register mode
+## Keybindings - register mode
 # config.bind('<Escape>', 'mode-leave', mode='register')
 
-## Bindings for yesno mode
+## Keybindings - yesno mode
 # config.bind('<Alt-Shift-Y>', 'prompt-yank --sel', mode='yesno')
 # config.bind('<Alt-Y>', 'prompt-yank', mode='yesno')
 # config.bind('<Escape>', 'mode-leave', mode='yesno')
