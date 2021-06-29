@@ -241,9 +241,10 @@ def init_widgets_list():
                   background = colors[0]
                   ),
               widget.Image(
-                  filename = "~/.config/qtile/icons/python.png",
+                  filename = "~/.config/qtile/icons/power-off-solid.svg",
+                  mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("dmenu_run -p 'Run: ' -h 24")},
                   background = colors[0],
-                  mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("dmenu_run -p 'Run: ' -h 24")}
+                  padding = 2,
                   ),
               widget.Sep(
                   linewidth = 2,
