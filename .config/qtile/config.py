@@ -62,7 +62,7 @@ keys = [
     Key([mod], "w", lazy.spawn(guieditor)),
     Key([mod], "F12", lazy.spawn('rofi-theme-selector')),
     Key([mod, "shift"], "b", lazy.spawn(browser2)),
-    Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/qtile/scripts/picom-toggle.sh')),
+    Key(["mod1", "control"], "o", lazy.spawn(home + '/.config/wm-scripts/picom-toggle.sh')),
     # Screenshots
     Key([], "Print", lazy.spawn("scrot '%a-%d-%b-%Y-%H:%M_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'")),
 
@@ -76,9 +76,6 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown()),
 
     # Miltimedia
-        # Brightness
-    # Key([], "XF86MonBrightnessUp", lazy.spawn("backlight -inc 10")),
-    # Key([], "XF86MonBrightnessDown", lazy.spawn("backlight-down 10")),
         # Volume
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -q set Master 5%-")),
@@ -342,20 +339,20 @@ def init_widgets_list():
                   margin_x = 2,
                   foreground = colors[6],
                   ),
-              # widget.Sep(
-              #     linewidth = 3,
-              #     foreground = colors[0],
-              #     background = colors[0]
-              #     ),
-              # arcobattery.BatteryIcon(
-              #     theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
-              #     padding=0,
-              #     scale=0.7,
-              #     y_poss=2,
-              #     update_interval = 5,
-              #     foreground = colors[2],
-              #     background = colors[0]
-              #     ),
+              widget.Sep(
+                  linewidth = 3,
+                  foreground = colors[0],
+                  background = colors[0]
+                  ),
+              arcobattery.BatteryIcon(
+                  theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
+                  padding=0,
+                  scale=0.7,
+                  y_poss=2,
+                  update_interval = 5,
+                  foreground = colors[2],
+                  background = colors[0]
+                  ),
               widget.Sep(
                   linewidth = 3,
                   foreground = colors[0],
@@ -449,7 +446,7 @@ main = None
 @hook.subscribe.startup_once
 def start_once():
     home = os.path.expanduser('~')
-    subprocess.call([home + '/.config/qtile/scripts/autostart.sh'])
+    subprocess.call([home + '/.config/wm-scripts/autostart.sh'])
 
 
 @hook.subscribe.startup
