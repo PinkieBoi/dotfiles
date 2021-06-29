@@ -7,27 +7,20 @@
 #  -------------------------------------------
 #              Qutebrowser Config
 #  -------------------------------------------
+#
+#               Documentation:
+#         qute://help/configuring.html
+#           qute://help/settings.html
 import dracula.draw
 
-## Documentation:
-##   qute://help/configuring.html
-##   qute://help/settings.html
-
-## This is here so configs done via the GUI are still loaded.
-## Remove it to not load settings done via the GUI.
+## Load configs done via the GUI
 config.load_autoconfig()
 
 ## Aliases for commands
 ## Type: Dict
 c.aliases = {'w': 'session-save', 'q': 'close', 'wq': 'quit --save'}
 
-## Time interval (in milliseconds) between auto-saves of
-## config/cookies/etc.
-## Type: Int
 # c.auto_save.interval = 15000
-
-## Always restore open sites when qutebrowser is reopened
-## Type: Bool
 # c.auto_save.session = False
 
 ## Backend to use to display websites
