@@ -15,7 +15,6 @@ setopt nocaseglob
 setopt rcexpandparam
 setopt numericglobsort
 setopt appendhistory
-setopt histignorealldups
 setopt autocd
 setopt GLOB_DOTS
 

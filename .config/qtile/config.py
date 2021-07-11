@@ -29,8 +29,8 @@ terminal    = "kitty"
 browser1    = "brave"
 browser2    = "qutebrowser"
 mailclient  = "evolution"
-filemanager = "thunar"
-guieditor   = "kate"
+filemanager = "nemo"
+guieditor   = "geany"
 scrlocker   = "betterlockscreen -l"
 
 
@@ -241,7 +241,7 @@ def init_widgets_list():
                   filename = "~/.config/qtile/icons/power-off-solid.svg",
                   mouse_callbacks = {'Button1': lambda: qtile.cmd_spawn("dmenu_run -p 'Run: ' -h 24")},
                   background = colors[0],
-                  padding = 2,
+                  # padding = 2,
                   ),
               widget.Sep(
                   linewidth = 2,
@@ -259,7 +259,7 @@ def init_widgets_list():
                   active = colors[6],
                   inactive = colors[8],
                   rounded = False,
-                  highlight_color =  colors[1],
+                  highlight_color =  colors[0],
                   highlight_method = "line",
                   this_current_screen_border = colors[6],
                   this_screen_border = colors [4],

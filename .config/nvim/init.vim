@@ -65,6 +65,13 @@ set fillchars+=vert:¬
 
 let g:rainbow_active = 1
 
+" Enable persistent undo
+if has('persistent_undo')
+  set undodir=$HOME/.vim/undo
+  set undofile
+endif
+
+
 " Startify
 let g:startify_session_dir = '~/.vim/session'
 let g:startify_files_number = 6

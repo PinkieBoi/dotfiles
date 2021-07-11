@@ -116,6 +116,13 @@ alias wget="wget -c"
 alias yta="youtube-dl --extract-audio --audio-format best "
 alias ytv="youtube-dl -f bestvideo+bestaudio "
 
+### MongoDB / Mongoose
+alias n-mongod="sudo rm /tmp/mongodb-27017.sock && mongod"
+
+
+
+
+
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'

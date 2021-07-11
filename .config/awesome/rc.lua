@@ -5,11 +5,8 @@ local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, 
 local gears         = require("gears") --Utilities such as color parsing and objects
 local awful         = require("awful") --Everything related to window managment
                       require("awful.autofocus")
--- Widget and layout library
 local wibox         = require("wibox")
--- Theme handling library
 local beautiful     = require("beautiful")
--- Notification library
 local naughty       = require("naughty")
 naughty.config.defaults['icon_size'] = 100
 local menubar       = require("menubar")
@@ -35,7 +32,6 @@ do
         -- Make sure we don't go into an endless error loop
         if in_error then return end
         in_error = true
-
         naughty.notify({ preset = naughty.config.presets.critical,
                          title = "Oops, an error happened!",
                          text = tostring(err) })
@@ -67,15 +63,15 @@ local altkey       = "Mod1"
 local modkey1      = "Control"
 
 -- personal variables
-local browser1          = "firefox"
-local browser2          = "brave"
+local terminal          = "kitty"
+local browser1          = "brave"
+local browser2          = "qutebrowser"
 local editor            = os.getenv("EDITOR") or "nvim"
 local editorgui         = "kate"
-local filemanager       = "thunar"
+local filemanager       = "nemo"
 local mailclient        = "evolution"
 local mediaplayer       = "vlc"
 local scrlocker         = "slimlock"
-local terminal          = "kitty"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
@@ -217,8 +213,6 @@ globalkeys = my_table.join(
               {description = "terminal", group = "super"}),
     awful.key({ modkey }, "Escape", function () awful.util.spawn( "xkill" )                  end,
               {description = "Kill proces", group = "hotkeys"}),
-    awful.key({ modkey }, "c", function () awful.util.spawn( "conky-toggle" )                end,
-              {description = "conky-toggle", group = "super"}),
     awful.key({ modkey }, "e", function () awful.util.spawn( filemanager )                   end,
               {description = "run gui editor", group = "super"}),
     awful.key({ modkey }, "m", function () awful.util.spawn( mailclient )                    end,
@@ -233,6 +227,7 @@ globalkeys = my_table.join(
               {description = "meld" , group = "function keys" }),
     awful.key({ modkey }, "F12", function () awful.util.spawn( "rofi-theme-selector" )       end,
               {description = "rofi" , group = "Theming" }),
+
     awful.key({ modkey, "Shift" }, "b", function () awful.spawn( browser2 )                  end,
               {description = "surf web browser" , group = "gui apps" }),
 
@@ -364,17 +359,6 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "Tab", function () awful.layout.inc(-1)                  end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                      client.focus = c
-                      c:raise()
-                  end
-              end,
-              {description = "restore minimized", group = "client"}),
-
     -- Widgets popups
     awful.key({ altkey, }, "c", function () lain.widget.calendar.show(7) end,
               {description = "show calendar", group = "widgets"}),
@@ -384,14 +368,14 @@ globalkeys = my_table.join(
               {description = "show weather", group = "widgets"}),
 
     -- ALSA volume control
-    --awful.key({ modkey1 }, "Up",
-    awful.key({ }, "XF86AudioRaiseVolume",
+    awful.key({ modkey1 }, "Up",
+    --awful.key({ }, "XF86AudioRaiseVolume",
         function ()
             os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
             beautiful.volume.update()
         end),
-    --awful.key({ modkey1 }, "Down",
-    awful.key({ }, "XF86AudioLowerVolume",
+    awful.key({ modkey1 }, "Down",
+    -- awful.key({ }, "XF86AudioLowerVolume",
         function ()
             os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
             beautiful.volume.update()
@@ -550,14 +534,14 @@ awful.rules.rules = {
       properties = { screen = 1, tag = "9" } },
 
     -- Set applications to be maximized at startup.
-    { rule = { class = editorgui },
-          properties = { maximized = true } },
+    -- { rule = { class = editorgui },
+    --       properties = { maximized = true } },
 
-    { rule = { class = "inkscape" },
-          properties = { maximized = true } },
+    -- { rule = { class = "inkscape" },
+    --       properties = { maximized = true } },
 
-    { rule = { class = "Vlc" },
-          properties = { maximized = true } },
+    -- { rule = { class = "Vlc" },
+    --   properties = { maximized = true } },
 
 
 

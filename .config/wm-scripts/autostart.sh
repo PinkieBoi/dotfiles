@@ -18,8 +18,9 @@ xfce4-power-manager &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 picom --config $HOME/.config/wm-scripts/picom.conf &
 nm-applet &
-# variety &
+variety &
 pamac-tray &
 blueman-applet &
 kdeconnect-indicator &
+nextcloud &
 optimus-manager-qt &
