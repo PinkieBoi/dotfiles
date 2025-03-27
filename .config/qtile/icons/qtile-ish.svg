@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   aria-hidden="true"
+   focusable="false"
+   data-prefix="fas"
+   data-icon="power-off"
+   class="svg-inline--fa fa-power-off fa-w-16"
+   role="img"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="power-off-solid.svg"
+   inkscape:version="1.1 (c4e8f9ed74, 2021-05-24)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     id="namedview6"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="true"
+     inkscape:zoom="1.6054688"
+     inkscape:cx="219.56204"
+     inkscape:cy="359.70802"
+     inkscape:window-width="1896"
+     inkscape:window-height="1034"
+     inkscape:window-x="10"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4">
+    <inkscape:grid
+       type="xygrid"
+       id="grid10" />
+  </sodipodi:namedview>
+  <path
+     fill="currentColor"
+     d="M 294.11311,493.76039 C 217.74558,506.48831 136.71114,483.43663 77.80915,424.53463 -18.923058,327.80242 -18.993768,171.03685 77.455597,74.163223 173.76354,-22.568985 331.51906,-22.922537 428.25127,73.526828 c 58.9727,58.831282 82.16581,140.007142 69.57931,216.374672 -2.40417,14.14214 -16.40488,23.1931 -30.19346,19.30402 l -31.04199,-8.69742 c -11.59655,-3.25269 -19.02117,-14.63711 -17.25341,-26.58721 7.56605,-51.12382 -8.20244,-104.36896 -47.30544,-143.47197 -65.19525,-65.336662 -171.5441,-66.185192 -237.65859,-0.0707 -64.770978,64.77098 -66.750878,171.68553 0.77782,238.3657 36.84026,36.416 89.44901,54.51793 142.90628,46.59833 11.9501,-1.76776 23.26381,5.72757 26.44579,17.25341 l 8.69742,31.04199 c 3.81837,13.71787 -5.02046,27.78929 -19.09189,30.12275 z m -74.8826,-221.96082 169.70562,169.70562 c 9.40452,9.40452 24.53661,9.40452 33.94113,0 l 22.62742,-22.62741 c 9.40452,-9.40452 9.40452,-24.53661 0,-33.94113 L 275.79905,215.23102 c -9.40452,-9.40452 -24.53661,-9.40452 -33.94113,0 l -22.62741,22.62742 c -9.40452,9.40452 -9.40452,24.53661 0,33.94113 z"
+     id="path2"
+     style="fill:#5e81ac;fill-opacity:1" />
+</svg>
