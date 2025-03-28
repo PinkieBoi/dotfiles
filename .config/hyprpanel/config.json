@@ -28,7 +28,7 @@
   "bar.windowtitle.icon": true,
   "theme.bar.buttons.volume.enableBorder": false,
   "bar.volume.label": true,
-  "theme.bar.buttons.network.enableBorder": false,
+  "theme.bar.buttons.network.enableBorder": true,
   "bar.battery.hideLabelWhenFull": true,
   "theme.bar.buttons.systray.enableBorder": true,
   "bar.notifications.show_total": true,
@@ -77,7 +77,6 @@
       ],
       "right": [
         "volume",
-        "network",
         "bluetooth",
         "clock",
         "systray",
@@ -96,7 +95,6 @@
       ],
       "right": [
         "volume",
-        "network",
         "kbinput",
         "bluetooth",
         "battery",
@@ -163,5 +161,6 @@
   "menus.volume.raiseMaximumVolume": false,
   "menus.clock.weather.enabled": false,
   "bar.clock.format": "%a %d %b | %I:%M %p",
-  "terminal": "kitty"
+  "terminal": "kitty",
+  "bar.network.label": true
 }
