@@ -1,0 +1,16 @@
+mkdir .config/zsh
+git clone https://github.com/catppuccin/zsh-syntax-highlighting.git\
+cd zsh-syntax-highlighting/themes/\
+cp -v catppuccin_mocha-zsh-syntax-highlighting.zsh .config/zsh
+unalias ls
+ls 
+cp catppuccin_* ~/.config/zsh
+zsh
+yay -S shell-color-scripts-git zoxide
+cd
+l;s
+ls
+rm zsh-syntax-highlighting -rf
+: 1743172243:0;config add .config/hypr
+: 1743172258:0;config commit -m "add scripts path"
+: 1743172263:0;config add .config/zsh
