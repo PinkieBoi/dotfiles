@@ -22,6 +22,7 @@ fi
 
 export EDITOR=nvim
 export VISUAL=nvim
+export SSH_AUTH_SOCK=~/.1password/agent.sock
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Bat as manpager
 export MANROFFOPT="-c"
 
@@ -49,9 +50,6 @@ zinit snippet OMZP::sudo
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # Load Completions
 autoload -U compinit && compinit
 zinit cdreplay -q
@@ -62,8 +60,8 @@ bindkey '^n' history-search-forward
 
 # History
 HISTSIZE=10000
-HISTFILE=~/.config/zsh/zsh_history
 SAVEHIST=$HISTSIZE
+HISTFILE=~/.config/zsh/zsh_history
 HISTDUP=erase
 
 # Zsh Options
@@ -90,9 +88,13 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(op completion zsh)"; compdef _op op
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
 
 # Run program on startup
 colorscript random
