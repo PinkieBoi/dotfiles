@@ -99,8 +99,8 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 # Package managment
+alias yay="paru --bottomup"
 alias paru="paru --bottomup"
-alias upall="yay -Syyu --noconfirm"
 alias unlock="sudo rm /var/lib/pacman/db.lck"        # pacman unlock
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"       # Recent Installed Packages
 alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
@@ -119,7 +119,7 @@ alias mirrora="sudo reflector -f 30 -l 30 --number 20 --verbose --save /etc/pacm
 alias mirrorb="sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist"
 alias mirrord="sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist"
 alias mirrors="sudo reflector --latest 50 --number 20 --sort score --save /etc/pacman.d/mirrorlist"
-alias reflectuk="sudo reflector --vervose --country 'United Kingdom' --age 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
+alias reflectuk="sudo reflector --country 'United Kingdom' --age 6 --protocol https --sort rate --save /etc/pacman.d/mirrorlist"
 
 ## Other useful aliases
     # Clean python crud
@@ -145,6 +145,7 @@ alias vboxmount="mount -t vboxsf -o rw,uid=$UID,gid=$UID Public /home/$USER/Publ
 alias wget="wget -c"                                # Continue
 alias yta="yt-dlp -x --audio-format mp3 "           # MP3 audio only
 alias ytv="yt-dlp -f bestvideo+bestaudio "          # Best audio/video combination
+alias ytxxx="yt-dlp --cookies-from-browser brave "  # cookis required for adult twitter stuff
 
 # the terminal rickroll
 alias rr='curl -s -L https://raw.githubusercontent.com/keroserene/rickrollrc/master/roll.sh | bash'
