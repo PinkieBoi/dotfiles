@@ -88,7 +88,8 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-eval "$(op completion zsh)"; compdef _op op
+# 1Password completions
+# eval "$(op completion zsh)"; compdef _op op
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
