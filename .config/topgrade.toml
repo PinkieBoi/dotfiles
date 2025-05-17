@@ -14,7 +14,7 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-disable = ["containers", "git_repos", "distrobox", "auto_cpufreq"]
+disable = ["containers", "git_repos", "distrobox", "auto_cpufreq", "uv"]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
