@@ -16,7 +16,7 @@
   "theme.bar.buttons.workspaces.enableBorder": false,
   "bar.workspaces.showAllActive": true,
   "bar.workspaces.show_icons": false,
-  "bar.workspaces.numbered_active_indicator": "underline",
+  "bar.workspaces.numbered_active_indicator": "highlight",
   "bar.workspaces.show_numbered": true,
   "theme.bar.buttons.workspaces.smartHighlight": true,
   "bar.workspaces.showWsIcons": false,
@@ -162,5 +162,8 @@
   "menus.clock.weather.enabled": false,
   "bar.clock.format": "%a %d %b | %I:%M %p",
   "terminal": "kitty",
-  "bar.network.label": true
+  "bar.network.label": true,
+  "theme.bar.border.location": "none",
+  "bar.launcher.icon": "󰣇",
+  "bar.workspaces.icons.active": ""
 }
