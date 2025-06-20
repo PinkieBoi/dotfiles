@@ -21,7 +21,6 @@ fi
 
 # Shell integrations
 eval "$(fzf --bash)"
-source <(op completion bash)
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
