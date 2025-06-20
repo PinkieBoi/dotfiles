@@ -22,7 +22,6 @@ fi
 
 export EDITOR=nvim
 export VISUAL=nvim
-export SSH_AUTH_SOCK=~/.1password/agent.sock
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Bat as manpager
 export MANROFFOPT="-c"
 
