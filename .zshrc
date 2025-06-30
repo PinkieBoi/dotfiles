@@ -88,6 +88,21 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!conda config --set auto_activate_base false
+__conda_setup="$('/home/pinkieboi/.Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/pinkieboi/.Anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/pinkieboi/.Anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/pinkieboi/.Anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
 
