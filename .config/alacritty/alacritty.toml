@@ -26,19 +26,19 @@ foreground = "#F9F9F9"
 size = 11.0
 
 [font.bold]
-family = "hack"
+family = "FiraCode Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "monospace"
+family = "FiraCode Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "hack"
+family = "FiraCode Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "hack"
+family = "FiraCode Nerd Font"
 style = "Regular"
 
 [[keyboard.bindings]]
@@ -49,4 +49,4 @@ key = "F11"
 history = 50000
 
 [window]
-opacity = 0.8
+opacity = 1.0
