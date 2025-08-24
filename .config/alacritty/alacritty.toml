@@ -5,7 +5,7 @@ import = [
 live_config_reload = true
 
 [window]
-decorations = "None"
+decorations = "Full"
 opacity = 0.95
 blur = true
 title = "Alacritty"
@@ -15,8 +15,8 @@ dynamic_padding = true
 
 [font]
 normal = { family = "FiraCode Nerd Font", style = "Regular" }
-bold = { family = "FiraCode Nerd Font", style = "bold" }
-italic = { family = "FiraCode Nerd Font", style = "italic" }
+bold = { family = "FiraCode Nerd Font", style = "Bold" }
+italic = { family = "FiraCode Nerd Font", style = "Italic" }
 size = 11.0
 
 [cursor]

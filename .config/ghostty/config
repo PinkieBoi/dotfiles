@@ -13,22 +13,21 @@ selection-background =
 minimum-contrast = 1
 
 cursor-style = block
-cursor-style-blink = true
-cursor-text = 
-cursor-click-to-move = true
-mouse-hide-while-typing = true
-mouse-shift-capture = false
-mouse-scroll-multiplier = 1
-background-opacity = 0.85
-background-blur = true
-unfocused-split-opacity = 0.75
-split-divider-color = #000
-
-wait-after-command = false
-abnormal-command-exit-runtime = 250
-scrollback-limit = 10000000
-maximize = false
-fullscreen = false
+# cursor-style-blink = true
+# cursor-click-to-move = true
+# mouse-hide-while-typing = true
+# mouse-shift-capture = false
+# mouse-scroll-multiplier = 1
+# background-opacity = 0.85
+# background-blur = true
+# unfocused-split-opacity = 0.75
+# split-divider-color = #000
+# 
+# wait-after-command = false
+# abnormal-command-exit-runtime = 250
+# scrollback-limit = 10000000
+# maximize = false
+# fullscreen = false
 
 # Keybindings
 keybind = ctrl+comma=open_config
@@ -275,7 +274,7 @@ quick-terminal-space-behavior = move
 #   * `bash`, `elvish`, `fish`, `zsh` - Use this specific shell injection scheme.
 # 
 # The default value is `detect`.
-shell-integration = detect
+# shell-integration = none
 
 shell-integration-features = cursor,no-sudo,title
 osc-color-report-format = 16-bit
@@ -296,7 +295,7 @@ gtk-wide-tabs = true
 gtk-adwaita = true
 desktop-notifications = true
 bold-is-bright = false
-term = xterm-ghostty
+term = xterm-256color
 auto-update = check
 auto-update-channel = stable
 
