@@ -149,7 +149,6 @@ alias da='date "+%Y-%m-%d %A %T %Z"'
 # Alias's to modified commands
 alias cp='cp -i'
 alias mv='mv -i'
-alias rm='trash -v'
 alias mkdir='mkdir -p'
 alias ps='ps auxf'
 alias ping='ping -c 10'
@@ -654,9 +653,7 @@ eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-
-exec startx
-
+    exec startx
 fi
 
 # >>> conda initialize >>>
