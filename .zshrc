@@ -24,6 +24,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Bat as manpager
 export MANROFFOPT="-c"
+export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
 
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
