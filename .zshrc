@@ -7,11 +7,6 @@
 # \/_/ \/____/\/___/   \/_/\/_/\/_/ \/____/
 #
 #
-# Powerlevel10k prompt
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set the directory to store zinit & plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 # Download Zinit if not found
@@ -34,11 +29,13 @@ if [ -d "$HOME/.bin" ]; then
     PATH="$HOME/.bin:$PATH"
 fi
 
+# Enable catppuccin syntax highlighting
+source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
 # Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -47,6 +44,7 @@ zinit light Aloxaf/fzf-tab
 # Add snippets
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
+zinit snippet OMZP::thefuck
 zinit snippet OMZP::archlinux
 zinit snippet OMZP::command-not-found
 
@@ -88,31 +86,11 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!conda config --set auto_activate_base false
-__conda_setup="$('/home/pinkieboi/.Anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/pinkieboi/.Anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/pinkieboi/.Anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/pinkieboi/.Anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+eval "$(oh-my-posh init zsh --config ~/.config/OhMyPosh/catppuccin_mocha.omp.json)"
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
-
 # Run program on startup
-colorscript random
-
-# Catppuccin syntax highlighting
-source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+# colorscript random
 

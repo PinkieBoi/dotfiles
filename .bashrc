@@ -24,6 +24,7 @@ fi
 
 # Shell integrations
 eval "$(fzf --bash)"
+. /usr/share/fzf/fzf-extras.zsh
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
