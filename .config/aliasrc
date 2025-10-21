@@ -7,7 +7,7 @@ alias config="/usr/bin/git --git-dir=/home/pinkieboi/.dotfiles/ --work-tree=/hom
 alias nano="$EDITOR"
 alias more='less'
 alias ":q"="exit"
-alias hist='history | grep'
+alias hst='history | grep'
 
 # cd
 alias home='cd ~'
@@ -22,28 +22,28 @@ alias ls="lsd -h --group-dirs=first --icon=always"
 alias la="lsd -ah --group-dirs=first --icon=always --dereference"
 alias ll="lsd -lah --group-dirs=first --icon=always --dereference"
 alias lx="lsd -xb --icon=always --dereference"                  # sort by extension
+alias lk='ls -lSrh'                                             # sort by size
 alias lk="lsd -lSr --icon=always --dereference"                 # sort by size, biggest last
 alias lc="lsd -ltcr --icon=always --dereference"                # sort by and show change time, most recent last
 alias lu="lsd -ltur --icon=always --dereference"                # sort by and show access time, most recent last
+alias ld="lsd -d */"                                            # directories only
 alias lt="lsd -ltr --icon=always --dereference"                 # sort by date, most recent last
 alias lm="lsd -al --icon=always | more --dereference"           # pipe through 'more'
 alias lr="lsd -lR --icon=always --dereference"                  # recursive ls
-alias lsr="tree -Csu"                                              # nice alternative to 'recursive ls'
+alias lsr="tree -Csu"                                           # nice alternative to 'recursive ls'
 
-# grep
+# Modify commands
+alias mkdir='mkdir -p'
 alias grep="grep --color=always"
 alias egrep="egrep --color=always"
 alias fgrep="fgrep --color=always"
-# ripgrep
 alias rg="rg --sort path"
-# bat
 alias cat="bat --theme=Dracula"
-
-# System
 alias df='df -kTh'
 alias du="du -kh"
-alias free="free -mt"st
+alias free="free -mt"
 alias hw="hwinfo --short"
+alias ping='ping -c 10'
 alias probe="sudo -E hw-probe -all -upload"
 alias diskchk="lsblk -d -e 7 -o name,rota,disc-max,model,ptuuid"
 alias listusb='lsblk -p -S -o name,tran,rm | grep "usb" | cut -d " " -f1'
@@ -55,7 +55,7 @@ alias jctl="journalctl -p 3 -xb"
     # Add new fonts
 alias update-fc='sudo fc-cache -fv'
     # Current Processes
-alias psa="ps auxf"
+alias ps="ps auxf"
 alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
     # Check vulnerabilities microcode
 alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
@@ -66,18 +66,30 @@ alias xd="ls /usr/share/xsessions"
     # Update icon cache
 alias updateicons="gtk-update-icon-cache -f -t /usr/share/icons/"
 ## system commands / trouble shooting
-alias mkinitp="sudo mkinitcpio -p linux"
 alias fixgnupg="chown -R $(whoami) ~/.gnupg/ | find ~/.gnupg -type f -exec chmod 600 {} \; | find ~/.gnupg -type d -exec chmod 700 {} \;"
 # smb / nmb services restart
 alias rstsmb="sudo systemctl restart smb.service"
-alias rstnmb="sudo systemctl restart nmb.service" 
+alias rstnmb="sudo systemctl restart nmb.service"
 
+# Alias's to show disk space and space used in a folder
+alias diskspace="du -S | sort -n -r |more"
+alias folders='du -h --max-depth=1'
+alias folderssort='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
+alias mountedinfo='df -hT'
+
+# alias chmod commands
+alias mx='chmod a+x'
+alias 000='chmod -R 000'
+alias 644='chmod -R 644'
+alias 666='chmod -R 666'
+alias 755='chmod -R 755'
+alias 777='chmod -R 777'
 
 ### Edit important configration files
 alias zshrc="$EDITOR ~/.zshrc"
 alias bashrc="$EDITOR ~/.bashrc"
 alias vimrc="$EDITOR ~/.vimrc"
-alias nvimrc="$EDITOR ~/.config/nvim/init.lua"
+alias nvrc="$EDITOR ~/.config/nvim/init.lua"
 alias aliasrc="$EDITOR ~/.config/aliasrc"
 alias efstab="sudo $EDITOR /etc/fstab"
 alias ensswitch="sudo $EDITOR /etc/nsswitch.conf"
@@ -89,7 +101,6 @@ alias epacman="sudo $EDITOR /etc/pacman.conf"
 alias epkbuild="$EDITOR -w PKGBUILD"
     # Display Manager
 alias esddm="sudo $EDITOR /etc/sddm.conf"
-alias elightdm="sudo $EDITOR /etc/lightdm/lightdm.conf"
     # Grub
 alias egrub="sudo $EDITOR /etc/default/grub"
 alias econfgrub="sudo $EDITOR /boot/grub/grub.cfg"
@@ -137,9 +148,21 @@ alias mylip="ifconfig | sed -En 's/127.0.0.1//;s/.*inet (addr:)?(([0-9]*\.){3}[0
 alias mynet="lspci -knn|grep -iA2 net"
 alias mynethw='hwinfo --netcard --wlan --bluetooth | grep -Ei "model\:|driver\:|status\:|cmd\:|file\:|detected\:" | grep -v "Config Status"'
 
+# Show open ports
+alias openports='netstat -nape --inet'
 
 #mounting the folder Public for exchange between host and guest on virtualbox
 alias vboxmount="mount -t vboxsf -o rw,uid=$UID,gid=$UID Public /home/$USER/Public"
+
+# KITTY - alias to be able to use kitty features when connecting to remote servers(e.g use tmux on remote server)
+alias kssh="kitty +kitten ssh"
+
+# alias to cleanup unused docker containers, images, networks, and volumes
+alias docker-clean=' \
+  docker container prune -f ; \
+  docker image prune -f ; \
+  docker network prune -f ; \
+  docker volume prune -f '
 
 ## Downloads
 alias wget="wget -c"                                # Continue
@@ -155,13 +178,16 @@ alias xmrig="sudo $HOME/.bin/enable_1gb_pages.sh && sudo xmrig -c $HOME/.config/
 
 ## Virus Scanning
 alias scanh="clamdscan --multiscan --fdpass $HOME"
+alias freshclam='sudo freshclam'
 
 ## Neovim
 alias kvim='NVIM_APPNAME="nvim-kickstart" nvim'
 alias vim='nvim'
 
+alias lanm="systemctl --user restart lan-mouse"
+
 # Git
-alias gc='git clone'
+# alias gc='git clone'
 #alias addup='git add -u'
 #alias addall='git add .'
 #alias branch='git branch'
@@ -173,16 +199,6 @@ alias gc='git clone'
 #alias stat='git status'  # 'status' is protected name so using 'stat' instead
 #alias tag='git tag'
 #alias newtag='git tag -a'
-
-# Color man pages
-# export LESS_TERMCAP_mb=$'\E[01;32m'
-# export LESS_TERMCAP_md=$'\E[01;32m'
-# export LESS_TERMCAP_me=$'\E[0m'
-# export LESS_TERMCAP_se=$'\E[0m'
-# export LESS_TERMCAP_so=$'\E[01;47;34m'
-# export LESS_TERMCAP_ue=$'\E[0m'
-# export LESS_TERMCAP_us=$'\E[01;36m'
-# export LESS=-r
 
 # # ex = EXtractor for all kinds of archives
 # # usage: ex <file>
