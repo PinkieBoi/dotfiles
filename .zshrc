@@ -20,6 +20,7 @@ export VISUAL=nvim
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Bat as manpager
 export MANROFFOPT="-c"
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
+export PATH=$HOME/go/bin/:$PATH
 
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
@@ -93,4 +94,5 @@ eval "$(oh-my-posh init zsh --config ~/.config/OhMyPosh/catppuccin_mocha.omp.jso
 
 # Run program on startup
 # colorscript random
+fastfetch
 
