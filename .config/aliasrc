@@ -164,6 +164,8 @@ alias docker-clean=' \
   docker network prune -f ; \
   docker volume prune -f '
 
+alias shredr="shred -n 10 z --remove"
+
 ## Downloads
 alias wget="wget -c"                                # Continue
 alias yta="yt-dlp -x --audio-format mp3 "           # MP3 audio only
