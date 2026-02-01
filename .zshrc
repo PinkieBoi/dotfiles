@@ -7,9 +7,9 @@
 # \/_/ \/____/\/___/   \/_/\/_/\/_/ \/____/
 #
 #
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
 
 # Set the directory to store zinit & plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -41,7 +41,7 @@ source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Plugins
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+# zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
@@ -92,7 +92,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
-# eval "$(oh-my-posh init zsh --config ~/.config/OhMyPosh/catppuccin_mocha.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.config/OhMyPosh/catppuccin_mocha.omp.json)"
 
 # Load Aliases
 [[ -f ~/.config/aliasrc ]] && . ~/.config/aliasrc
@@ -102,4 +102,4 @@ colorscript random
 # fastfetch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+# [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
