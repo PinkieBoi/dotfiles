@@ -20,7 +20,7 @@
         {
           "foreground": "p:blue",
           "style": "plain",
-          "template": "{{ .UserName }} ",
+          "template": " {{ .UserName }} ",
           "type": "session"
         },
         {

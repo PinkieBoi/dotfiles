@@ -110,7 +110,10 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 # Package managment
-alias yay="paru --bottomup"
+if [[ ! /usr/bin/yay ]]; then
+  alias yay="paru --bottomup"
+fi
+
 alias paru="paru --bottomup"
 alias unlock="sudo rm /var/lib/pacman/db.lck"        # pacman unlock
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"       # Recent Installed Packages
