@@ -62,3 +62,8 @@ function myip () {
     curl -4 ifconfig.me
 }
 
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/pinkieboi/.lmstudio/bin"
+# End of LM Studio CLI section
+

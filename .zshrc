@@ -26,7 +26,7 @@ export VISUAL=nvim
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"   # Bat as manpager
 export MANROFFOPT="-c"
 export SSH_AUTH_SOCK=$HOME/.bitwarden-ssh-agent.sock
-export PATH=$HOME/go/bin/:$PATH
+export PATH="$HOME/go/bin:$HOME/go/pkg:$PATH"
 
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
@@ -107,3 +107,10 @@ fastfetch
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.config/zsh/p10k.zsh ]] || source ~/.config/zsh/p10k.zsh
+
+# Add Loxal AI directories to path
+# opencode
+export PATH=/home/pinkieboi/.opencode/bin:$PATH
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/pinkieboi/.lmstudio/bin"
+
