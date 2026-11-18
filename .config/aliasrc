@@ -110,10 +110,7 @@ alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
 alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 
 # Package managment
-if [[ ! /usr/bin/yay ]]; then
-  alias yay="paru --bottomup"
-fi
-
+alias yay="paru --bottomup"
 alias paru="paru --bottomup"
 alias unlock="sudo rm /var/lib/pacman/db.lck"        # pacman unlock
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"       # Recent Installed Packages
@@ -124,7 +121,6 @@ alias savepkgs="sudo pacman -Qqen > $HOME/pkgs-arch-ABS.txt && sudo pacman -Qqem
 alias big="expac -H M '%m\t%n' | sort -h | nl"
 alias rmcache="paru -Scc && sudo pacman -Scc"                       # Clean package cache
 alias cleanup="sudo pacman -Qdtq | sudo pacman -Rns -"              # Clean orphaned pkgs
-
     # Edit Mirror List
 alias emirrorlist="sudo $EDITOR /etc/pacman.d/mirrorlist"
     # Update Mirrors
