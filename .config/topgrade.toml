@@ -14,7 +14,7 @@
 # sudo_command = "sudo"
 
 # Disable specific steps - same options as the command line flag
-disable = ["containers", "git_repos", "distrobox", "auto_cpufreq", "uv", "hyprpm"]
+disable = ["containers", "git_repos", "distrobox", "auto_cpufreq", "uv", "hyprpm", "hermes_agent"]
 
 # Ignore failures for these steps
 # ignore_failures = ["powershell"]
@@ -54,7 +54,7 @@ bashit_branch = "stable"
 # this will be ignored if the binary is built without self update support
 #
 # available also via setting the environment variable TOPGRADE_NO_SELF_UPGRADE)
-no_self_update = false
+no_self_update = true
 
 # Extra tracing filter directives
 # These are prepended to the `--log-filter` argument
